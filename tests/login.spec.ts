@@ -1,8 +1,11 @@
 import { test, expect } from '@playwright/test';
 import { ACTION_TIME_OUT } from './UI/helpers/const';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 test('Login', async ({ page }) => {
-  await page.goto('https://opensource-demo.orangehrmlive.com/');
+  await page.goto(process.env.TEST_URL);
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/OrangeHRM/);
