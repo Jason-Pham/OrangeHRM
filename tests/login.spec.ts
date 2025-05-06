@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { ACTION_TIME_OUT } from './helpers/const';
+import { ACTION_TIME_OUT } from './UI/helpers/const';
 
 test('Login', async ({ page }) => {
   await page.goto('https://opensource-demo.orangehrmlive.com/');

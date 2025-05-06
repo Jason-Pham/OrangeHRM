@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test --config=tests/config/playwright.config.ts --project='Google Chrome'",
-    "debug": "playwright test --ui --config=tests/config/playwright.config.ts --project='Google Chrome'"
+    "ui-test": "playwright test --config=tests/UI/config/playwright.config.ts --project='Google Chrome'",
+    "ui-debug": "playwright test --ui --config=tests/UI/config/playwright.config.ts --project='Google Chrome'"
   },
   "keywords": [],
   "author": "",
