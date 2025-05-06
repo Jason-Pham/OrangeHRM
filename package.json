@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test --config=tests/config/playwright.config.ts --project='Google Chrome'",
+    "debug": "playwright test --ui --config=tests/config/playwright.config.ts --project='Google Chrome'"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.15.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
   }
 }
