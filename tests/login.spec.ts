@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { ACTION_TIME_OUT } from './helpers/const';
 
 test('Login', async ({ page }) => {
   await page.goto('https://opensource-demo.orangehrmlive.com/');
@@ -11,5 +12,5 @@ test('Login', async ({ page }) => {
   await page.getByRole('textbox', { name: 'password' }).fill('admin123');
   await page.getByRole('button', { name: 'Login' }).click();
 
-  await page.pause();
+  await expect(page.locator('.oxd-brand-banner')).toBeVisible({ timeout: ACTION_TIME_OUT });
 });
