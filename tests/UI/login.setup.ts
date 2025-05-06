@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { ACTION_TIME_OUT } from './helpers/const';
+import path from 'path';
+const authFile = path.join(__dirname, '../UI/config/.auth/user.json');
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -16,4 +18,6 @@ test('Login', async ({ page }) => {
   await page.getByRole('button', { name: 'Login' }).click();
 
   await expect(page.locator('.oxd-brand-banner')).toBeVisible({ timeout: ACTION_TIME_OUT });
+
+  await page.context().storageState({ path: authFile });
 });
