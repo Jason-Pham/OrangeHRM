@@ -10,6 +10,7 @@ jobs:
       TEST_URL: ${{ secrets.TEST_URL }}
       ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
       ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+      SEARCH_TEST: ${{ secrets.SEARCH_TEST }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
