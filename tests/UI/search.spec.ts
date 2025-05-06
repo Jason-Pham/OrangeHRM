@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 import { ACTION_TIME_OUT } from './helpers/const';
 import dotenv from 'dotenv';
 
@@ -11,20 +11,17 @@ test('Search', async ({ page }) => {
 
   await page.getByRole('textbox', { name: 'Search' }).fill(inputText);
 
+  await checkMenuItemsContainTextAndReportFailures(page, inputText)
 
+});
 
-  // Locator for the elements containing the menu item text
-  // Based on the HTML structure, this locator should find the 6 menu item text spans.
+async function checkMenuItemsContainTextAndReportFailures(page: Page, inputText: string) {
+
   const menuItemsTextLocator = page.locator('.oxd-main-menu-item');
-
-  // Get the text content of all matching elements (Expected to be 6)
   const allTexts = await menuItemsTextLocator.allTextContents();
 
-  // *** We are now validating ALL items found by the locator, so we remove .slice(0, -1) ***
   const menuItemsToValidate = allTexts;
-
   const lowerCaseInputText = inputText.toLowerCase();
-
   const failingItems: string[] = [];
 
   // Iterate through ALL items found by the locator
@@ -51,5 +48,4 @@ test('Search', async ({ page }) => {
     // Use allTexts.length here to report the actual number of items found and checked
     console.log(`✅ Successfully verified that all ${allTexts.length} menu items contain "${inputText}" (case-insensitive).`);
   }
-
-});
+}
