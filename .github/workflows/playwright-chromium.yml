@@ -1,10 +1,6 @@
-name: Playwright Tests
+name: Playwright Google Chrome Tests
 on:
   workflow_dispatch:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
 jobs:
   test:
     timeout-minutes: 60
@@ -24,7 +20,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npm run ui-test
+      run: npm run ui-test-chromium
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:

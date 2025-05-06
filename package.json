@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ui-test": "playwright test --config=tests/UI/config/playwright.config.ts --project='Google Chrome'",
+    "ui-test-google-chrome": "playwright test --config=tests/UI/config/playwright.config.ts --project='Google Chrome'",
+    "ui-test-chromium": "playwright test --config=tests/UI/config/playwright.config.ts --project='chromium'",
+    "ui-test-safari": "playwright test --config=tests/UI/config/playwright.config.ts --project='webkit'",
+    "ui-test-firefox": "playwright test --config=tests/UI/config/playwright.config.ts --project='firefox'",
+
     "ui-debug": "playwright test --ui --config=tests/UI/config/playwright.config.ts --project='Google Chrome'"
   },
   "keywords": [],
