@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { ACTION_TIME_OUT } from './UI/helpers/const';
+import { ACTION_TIME_OUT } from './helpers/const';
 import dotenv from 'dotenv';
 
 dotenv.config();
