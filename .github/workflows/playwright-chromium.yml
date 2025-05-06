@@ -1,4 +1,4 @@
-name: Playwright Google Chrome Tests
+name: Playwright Chromium Tests
 on:
   workflow_dispatch:
 jobs:
