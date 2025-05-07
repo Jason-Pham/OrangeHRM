@@ -9,8 +9,9 @@
     "ui-test-chromium": "playwright test --config=tests/UI/config/playwright.config.ts --project='chromium'",
     "ui-test-safari": "playwright test --config=tests/UI/config/playwright.config.ts --project='webkit'",
     "ui-test-firefox": "playwright test --config=tests/UI/config/playwright.config.ts --project='firefox'",
+    "ui-debug": "playwright test --ui --config=tests/UI/config/playwright.config.ts --project='Google Chrome'",
 
-    "ui-debug": "playwright test --ui --config=tests/UI/config/playwright.config.ts --project='Google Chrome'"
+    "api-healthcheck": "playwright test tests/API/healthcheck_api.spec.ts --retries=1 --config=tests/API/config/playwright.config.ts"
   },
   "keywords": [],
   "author": "",
