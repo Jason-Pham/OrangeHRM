@@ -6,7 +6,6 @@ import { defineConfig, devices } from '@playwright/test';
  */
 import dotenv from 'dotenv';
 import path from 'path';
-import { ACTION_TIME_OUT } from '../helpers/const';
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
@@ -31,28 +30,14 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    baseURL: process.env.TEST_URL,
-    actionTimeout: ACTION_TIME_OUT,
   },
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'setup',
-      testMatch: '**/*.setup.ts',
-    },
-
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'], 
       },
     },
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
