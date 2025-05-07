@@ -46,6 +46,6 @@ async function checkMenuItemsContainTextAndReportFailures(page: Page, inputText:
   } else {
     // If the failingItems array is empty, all validated items contained the text
     // Use allTexts.length here to report the actual number of items found and checked
-    console.log(`✅ Successfully verified that all ${allTexts.length} menu items contain "${inputText}" (case-insensitive).`);
+    // console.log(`✅ Successfully verified that all ${allTexts.length} menu items contain "${inputText}" (case-insensitive).`);
   }
 }
