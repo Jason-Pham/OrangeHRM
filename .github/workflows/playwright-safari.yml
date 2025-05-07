@@ -3,29 +3,16 @@ on:
   workflow_dispatch:
 jobs:
   Safari-test:
-    timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
-      # ENV keys
+      # ENV keys specific to this job - KEEP THEM HERE
       TEST_URL: ${{ secrets.TEST_URL }}
       MAIN_PAGE_TITLE: ${{ secrets.MAIN_PAGE_TITLE }}
       ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
       ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
       SEARCH_TEST: ${{ secrets.SEARCH_TEST }}
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - name: Use the reusable Playwright test action
+      uses: ./.github/actions/run-playwright-tests@v1
       with:
-        node-version: lts/*
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npm run ui-test-safari
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+        test_command: ui-test-safari

@@ -1,0 +1,40 @@
+# Correct location: .github/actions/run-playwright-tests/action.yml
+name: 'Run Playwright Tests'
+description: 'Sets up Node, installs dependencies, installs browsers, and runs Playwright tests'
+inputs:
+  test_command:
+    description: 'The npm command to run the Playwright tests'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    # Steps defined here are part of the reusable action
+    - uses: actions/checkout@v4
+      with:
+        repository: ${{ github.repository }}
+        ref: ${{ github.ref }}
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+
+    - name: Install dependencies
+      run: npm ci
+      shell: bash
+
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+      shell: bash
+
+    - name: Run Playwright tests
+      run: npm run ${{ inputs.test_command }}
+      shell: bash
+
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: playwright-report-${{ inputs.test_command }}
+        path: playwright-report/
+        retention-days: 30
+        
