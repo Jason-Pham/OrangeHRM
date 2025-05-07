@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [ main, master ]
 jobs:
-  test:
+  All-browsers-test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:

@@ -2,7 +2,7 @@ name: Playwright Safari Tests
 on:
   workflow_dispatch:
 jobs:
-  test:
+  Safari-test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:

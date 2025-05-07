@@ -2,7 +2,7 @@ name: Playwright Chromium Tests
 on:
   workflow_dispatch:
 jobs:
-  test:
+  Chromium-test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:

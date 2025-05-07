@@ -2,7 +2,7 @@ name: Playwright Firefox Tests
 on:
   workflow_dispatch:
 jobs:
-  test:
+  Firefox-test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:

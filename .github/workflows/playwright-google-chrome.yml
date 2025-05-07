@@ -2,7 +2,7 @@ name: Playwright Google Chrome Tests
 on:
   workflow_dispatch:
 jobs:
-  test:
+  Google-chrome-test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
