@@ -12,6 +12,9 @@ jobs:
       ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
       SEARCH_TEST: ${{ secrets.SEARCH_TEST }}
     steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
     - name: Use the reusable Playwright test action
       uses: ./.github/actions/run-playwright-tests@v1
       with:
