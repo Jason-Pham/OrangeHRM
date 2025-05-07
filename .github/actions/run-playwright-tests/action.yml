@@ -23,6 +23,18 @@ runs:
       run: npm ci
       shell: bash
 
+    - name: List node_modules and check for dotenv # <-- Ensure this step is included and run
+      run: |
+        echo "Current working directory:"
+        pwd
+        echo "Listing contents of node_modules:"
+        ls -al node_modules
+        echo "Checking for dotenv in node_modules:"
+        ls -al node_modules/dotenv || echo "dotenv directory not found in node_modules!"
+        echo "Checking for dotenv package.json:"
+        ls -al node_modules/dotenv/package.json || echo "dotenv package.json not found!"
+      shell: bash
+
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
       shell: bash
