@@ -23,6 +23,6 @@ jobs:
       uses: actions/checkout@v4  
 
     - name: Use the reusable Playwright test action
-      uses: ./.github/actions/run-playwright-tests@v1
+      uses: ./.github/actions/run-playwright-tests
       with:
         test_command: ui-test-all
