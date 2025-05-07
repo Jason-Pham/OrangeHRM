@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ui-test-all": "npm run ui-test-google-chrome && npm run ui-test-chromium && npm run ui-test-safari && npm run ui-test-firefox",
     "ui-test-google-chrome": "playwright test --config=tests/UI/config/playwright.config.ts --project='Google Chrome'",
     "ui-test-chromium": "playwright test --config=tests/UI/config/playwright.config.ts --project='chromium'",
     "ui-test-safari": "playwright test --config=tests/UI/config/playwright.config.ts --project='webkit'",

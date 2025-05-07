@@ -1,6 +1,13 @@
-name: Playwright Google Chrome Tests
+name: Playwright Tests All Browsers
 on:
   workflow_dispatch:
+  schedule:
+      # “At minute 0 at 12 AM (GMT+7) on every day-of-week from Monday through Friday.”
+      - cron: 0 17 * * 1-5
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 jobs:
   test:
     timeout-minutes: 60
@@ -22,7 +29,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npm run ui-test-google-chrome
+      run: npm run ui-test-all
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
