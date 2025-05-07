@@ -15,6 +15,7 @@ jobs:
     env:
       # ENV keys
       TEST_URL: ${{ secrets.TEST_URL }}
+      MAIN_PAGE_TITLE: ${{ secrets.MAIN_PAGE_TITLE }}
       ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
       ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
       SEARCH_TEST: ${{ secrets.SEARCH_TEST }}
