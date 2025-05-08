@@ -132,6 +132,52 @@ Once the project is set up, you can run the tests using the Playwright test runn
 
 * Test reports are automatically generated after each run and can be viewed using `npx playwright show-report`.
 
+## Framework Structure
+
+The project follows a clear directory structure to organize tests, configurations, and supporting files:
+
+```
+.
+├── .github/
+│   ├── actions/
+│   │   └── run-playwright-tests/
+│   │       └── action.yml
+│   └── workflows/
+│       ├── playwright-chromium.yml
+│       ├── playwright-firefox.yml
+│       ├── playwright-google-chrome.yml
+│       ├── playwright-safari.yml
+│       ├── playwright-test-all-browsers.yml
+│       └── playwright-test-api.yml
+├── node_modules/
+├── playwright-report/
+├── test-results/
+├── tests/
+│   ├── API/
+│   │   ├── config/
+│   │   │   └── playwright.config.ts
+│   │   ├── helpers/
+│   │   │   └── const.ts
+│   │   └── *.spec.ts --API test cases
+│   └── UI/
+│       ├── config/
+│       │   └── .auth/
+│       │   └── playwright.config.ts
+│       └── helpers/
+│           ├── common-actions.ts
+│           ├── const.ts
+│           ├── *.setup.ts --UI test setup files
+│           └── *.spec.ts --UI test cases
+├── .env
+├── .env.example
+├── .gitignore
+├── env.d.ts
+├── package-lock.json
+├── package.json
+├── README.md
+└── tsconfig.json
+```
+
 
 ## CI/CD
 
